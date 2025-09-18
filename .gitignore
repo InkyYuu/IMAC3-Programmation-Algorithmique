@@ -1,0 +1,5 @@
+# Ignorer les dossiers build et .vscode dans tous les TD
+TD*/build/
+TD*/.vscode/
+TD[3-9]*/
+TD[1-9][0-9]*/
