@@ -2,7 +2,7 @@
 #include <ctime>
 #include <iostream>
 #include <stdio.h>
-#include <unordered_set>
+#include <unordered_map>
 #include <vector>
 
 enum class CardKind {
@@ -98,14 +98,19 @@ std::string card_name(Card const &card) {
 
 int main() {
   srand(time(0));
-  std::unordered_set<Card> card_set;
-  auto cards = get_cards(100);
+  std::unordered_map<Card, int> card_counts;
+  std::vector<Card> cards = get_cards(1000);
+  int total_verif = 0;
 
   for (const auto &card : cards) {
-    std::cout << card_name(card) << " - Hash : " << std::hash<Card>{}(card)
-              << std::endl;
-    card_set.insert(card);
+    card_counts[card]++;
   }
+
+  for (const auto &[card, count] : card_counts) {
+    std::cout << card_name(card) << " - Occurrences : " << count << std::endl;
+    total_verif += count;
+  }
+  std::cout << "Total cards counted: " << total_verif << std::endl;
 
   return 0;
 }
