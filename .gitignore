@@ -5,3 +5,6 @@ S*/TD*/.vscode/
 S1/TD9/
 S2/Advent of Code/
 .vscode/
+
+# Ne pas ignorer le dossier .vscode du TD7 de S2
+!S2/TD7/.vscode/
